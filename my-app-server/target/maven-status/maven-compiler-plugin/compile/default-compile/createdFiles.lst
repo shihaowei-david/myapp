@@ -1,0 +1,5 @@
+person/shw/myapp/MyAppLaunch.class
+person/shw/myapp/module/user/service/impl/UserServiceImpl.class
+person/shw/myapp/module/user/service/UserService.class
+person/shw/myapp/module/user/api/impl/RpcUserApiImpl.class
+person/shw/myapp/config/DubboNacosConfig.class
