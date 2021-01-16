@@ -19,22 +19,20 @@ import org.springframework.context.annotation.Configuration;
 @DubboComponentScan("person.shw.myapp")
 public class DubboNacosConfig {
 
-
     @Bean
     public ApplicationConfig applicationConfig(){
         ApplicationConfig applicationConfig = new ApplicationConfig();
-        applicationConfig.setName("provider-nacos");
+        applicationConfig.setName("my-app");
         return applicationConfig;
     }
 
     @Bean
     public RegistryConfig registryConfig(){
         RegistryConfig registryConfig = new RegistryConfig();
-        registryConfig.setAddress("nacos://120.79.76.230:8848");
+        registryConfig.setAddress("nacos://47.105.165.0:8848");
         registryConfig.setGroup("ONE_GROUP");
         return registryConfig;
     }
-
 
     @Bean
     public ProtocolConfig protocolConfig(){

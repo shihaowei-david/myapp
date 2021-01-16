@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import person.shw.myapp.event.UserEvent;
 import person.shw.myapp.event.UserEventProducer;
+import person.shw.myapp.module.user.dto.req.SeqIdReqDTO;
 import person.shw.myapp.module.user.dto.req.UserInfoReqDTO;
 import person.shw.myapp.module.user.dto.resp.UserInfoRespDTO;
 import person.shw.myapp.module.user.service.UserService;
@@ -21,8 +22,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserEventProducer userEventProducer;
 
-    public String getUsernameById(Integer id) {
-        return "id为==>"+id+",名字为==>"+"小明";
+    public String getUsernameById(SeqIdReqDTO reqDTO) {
+        return "id为==>"+reqDTO.getId()+",名字为==>"+"小明";
     }
 
     public Integer getAgeById(Integer id) {
@@ -39,7 +40,6 @@ public class UserServiceImpl implements UserService {
         return dto;
     }
 
-    @PostConstruct
     public void sentMsg(){
         UserEvent userEvent = new UserEvent(0001L,"叫什么都行");
         userEventProducer.publish(userEvent);

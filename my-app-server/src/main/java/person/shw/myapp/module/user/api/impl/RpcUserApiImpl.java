@@ -2,7 +2,9 @@ package person.shw.myapp.module.user.api.impl;
 
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import person.shw.myapp.module.user.api.RpcUserApi;
+import person.shw.myapp.module.user.dto.req.SeqIdReqDTO;
 import person.shw.myapp.module.user.dto.req.UserInfoReqDTO;
 import person.shw.myapp.module.user.dto.resp.UserInfoRespDTO;
 import person.shw.myapp.module.user.service.UserService;
@@ -19,8 +21,8 @@ public class RpcUserApiImpl implements RpcUserApi {
     private UserService userService;
 
     @GatewayAPI(path = "/user/getUsernameById",retries = 2)
-    public String getUsernameById(Integer id) {
-        return userService.getUsernameById(id);
+    public String getUsernameById(SeqIdReqDTO reqDTO) {
+        return userService.getUsernameById(reqDTO);
     }
 
     @GatewayAPI(path = "/user/getAgeById",retries = 2)
@@ -31,6 +33,12 @@ public class RpcUserApiImpl implements RpcUserApi {
     @GatewayAPI(path = "/user/getUserInfo")
     public UserInfoRespDTO getUserInfo(UserInfoReqDTO request) {
         return userService.getUserInfo(request);
+    }
+
+    @Override
+    @GatewayAPI(path = "/user/getString")
+    public String getString(String text) {
+        return text;
     }
 
 

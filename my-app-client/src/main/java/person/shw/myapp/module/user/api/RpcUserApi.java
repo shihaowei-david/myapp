@@ -1,5 +1,6 @@
 package person.shw.myapp.module.user.api;
 
+import person.shw.myapp.module.user.dto.req.SeqIdReqDTO;
 import person.shw.myapp.module.user.dto.req.UserInfoReqDTO;
 import person.shw.myapp.module.user.dto.resp.UserInfoRespDTO;
 
@@ -16,7 +17,7 @@ public interface RpcUserApi {
      * @param id
      * @return
      */
-    String getUsernameById(Integer id);
+    String getUsernameById(SeqIdReqDTO reqDTO);
 
     /**
      * 通过id获取用户年龄
@@ -31,4 +32,6 @@ public interface RpcUserApi {
      * @return
      */
     UserInfoRespDTO getUserInfo(UserInfoReqDTO request);
+
+    String getString(String text);
 }

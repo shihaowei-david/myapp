@@ -1,5 +1,6 @@
 package person.shw.myapp.module.user.service;
 
+import person.shw.myapp.module.user.dto.req.SeqIdReqDTO;
 import person.shw.myapp.module.user.dto.req.UserInfoReqDTO;
 import person.shw.myapp.module.user.dto.resp.UserInfoRespDTO;
 
@@ -9,7 +10,7 @@ import person.shw.myapp.module.user.dto.resp.UserInfoRespDTO;
  */
 public interface UserService {
 
-    String getUsernameById(Integer id);
+    String getUsernameById(SeqIdReqDTO reqDTO);
 
     Integer getAgeById(Integer id);
 
